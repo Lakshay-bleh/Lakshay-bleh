@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  base:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: lowlighter/metrics@latest
@@ -21,129 +21,94 @@ jobs:
           base: header, activity, community, repositories, metadata
           config_timezone: Asia/Kolkata
 
-  achievements:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: Lakshay-bleh
-          filename: metrics.achievements.svg
-          base: ""
-          plugin_achievements: yes
-
-  languages:
-    runs-on: ubuntu-latest
-    steps:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
           filename: metrics.languages.svg
+          template: classic
           base: ""
           plugin_languages: yes
-          plugin_languages_indepth: yes
           plugin_languages_sections: most-used,recent
           plugin_languages_limit: 8
+          plugin_languages_indepth: yes
 
-  habits:
-    runs-on: ubuntu-latest
-    steps:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
           filename: metrics.habits.svg
+          template: classic
           base: ""
           plugin_habits: yes
           plugin_habits_facts: yes
           plugin_habits_charts: yes
 
-  isocalendar:
-    runs-on: ubuntu-latest
-    steps:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
           filename: metrics.isocalendar.svg
+          template: classic
           base: ""
           plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
 
-  lines:
-    runs-on: ubuntu-latest
-    steps:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
           filename: metrics.lines.svg
+          template: classic
           base: ""
           plugin_lines: yes
 
-  followup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: Lakshay-bleh
-          filename: metrics.followup.svg
-          base: ""
-          plugin_followup: yes
-
-  topics:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: Lakshay-bleh
-          filename: metrics.topics.svg
-          base: ""
-          plugin_topics: yes
-
-  people:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: Lakshay-bleh
-          filename: metrics.people.svg
-          base: ""
-          plugin_people: yes
-          plugin_people_types: followers,following
-
-  stars:
-    runs-on: ubuntu-latest
-    steps:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
           filename: metrics.stars.svg
+          template: classic
           base: ""
           plugin_stars: yes
 
-  stargazers:
-    runs-on: ubuntu-latest
-    steps:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
-          filename: metrics.stargazers.svg
+          filename: metrics.followup.svg
+          template: classic
           base: ""
-          plugin_stargazers: yes
+          plugin_followup: yes
+          plugin_followup_sections: repositories,user
 
-  traffic:
-    runs-on: ubuntu-latest
-    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Lakshay-bleh
+          filename: metrics.topics.svg
+          template: classic
+          base: ""
+          plugin_topics: yes
+          plugin_topics_limit: 20
+          plugin_topics_mode: icons
+
+      - uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Lakshay-bleh
+          filename: metrics.people.svg
+          template: classic
+          base: ""
+          plugin_people: yes
+          plugin_people_limit: 24
+          plugin_people_types: followers,following
+
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: Lakshay-bleh
           filename: metrics.traffic.svg
+          template: classic
           base: ""
           plugin_traffic: yes
