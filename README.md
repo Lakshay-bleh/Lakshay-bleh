@@ -1,6 +1,5 @@
 ![Metrics](./github-metrics.svg)
 ![Languages](./metrics.languages.svg)
-![Habits](./metrics.habits.svg)
 ![Isocalendar](./metrics.isocalendar.svg)
 ![Lines](./metrics.lines.svg)
 ![Stars](./metrics.stars.svg)
